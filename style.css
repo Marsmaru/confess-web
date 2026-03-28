@@ -1,4 +1,8 @@
 /* ================= BASE ================= */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -9,6 +13,7 @@ body {
   align-items: center;
   min-height: 100vh;
   padding: 20px;
+  overflow-x: hidden;
 }
 
 /* ================= WRAPPER ================= */
