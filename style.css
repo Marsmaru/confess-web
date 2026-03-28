@@ -1,0 +1,570 @@
+/* ================= BASE ================= */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #FFB6C1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* ================= WRAPPER ================= */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+/* ================= CARD ================= */
+.card {
+  background: white;
+  width: 90%;
+  max-width: 350px;
+  border-radius: 20px; 
+  padding: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* ================= HEADER ================= */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.header:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #eee;
+}
+
+.username {
+  font-weight: 600;
+  font-size: 13px;
+  color: #333;
+}
+
+/* ================= IMAGE ================= */
+.image-box {
+  position: relative;
+  margin-top: 10px;
+}
+
+.image-box img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* ================= TAG ================= */
+.tag {
+  position: absolute;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  font-size: 11px;
+  padding: 3px 6px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tag:hover {
+  transform: scale(1.1);
+}
+
+.tag-left { top: 50%; left: 5px; }
+.tag-right { top: 10px; right: 5px; }
+.tag-bottom { bottom: 10px; right: 30px; }
+
+/* ================= TAG ACTIVE ================= */
+.tag-left.active {
+  background: #ef788a;
+  animation: pulsePink 1s infinite;
+}
+
+.tag-right.active {
+  background: #4da6ff;
+  animation: pulseBlue 1s infinite;
+}
+
+.tag-bottom.active {
+  background: #a066ff;
+  animation: pulsePurple 1s infinite;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes pulsePink {
+  0% { box-shadow: 0 0 5px #ef788a; }
+  50% { box-shadow: 0 0 20px #ef788a; }
+  100% { box-shadow: 0 0 5px #ef788a; }
+}
+
+@keyframes pulseBlue {
+  0% { box-shadow: 0 0 5px #4da6ff; }
+  50% { box-shadow: 0 0 20px #4da6ff; }
+  100% { box-shadow: 0 0 5px #4da6ff; }
+}
+
+@keyframes pulsePurple {
+  0% { box-shadow: 0 0 5px #a066ff; }
+  50% { box-shadow: 0 0 20px #a066ff; }
+  100% { box-shadow: 0 0 5px #a066ff; }
+}
+
+/* ================= TEXT ================= */
+.actions {
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.caption {
+  font-size: 13px;
+  margin: 5px 0;
+}
+
+.sub {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* ================= BUTTON ================= */
+button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 15px;
+  background: #ff6b81;
+  color: white;
+  cursor: pointer;
+}
+
+/* ================= POPUP ================= */
+.popup {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 250px;
+  text-align: center;
+}
+
+/* ================= EXTRA CONTAINER ================= */
+.extra-container {
+  width: 90%;
+  max-width: 350px; 
+}
+
+/* ================= MUSIC BOX ================= */
+.music-box {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px); /* 🔥 awalnya naik dikit */
+  transition: all 0.4s ease;
+
+  border-radius: 20px;
+  background: linear-gradient(135deg, #ffe0e6, #fff);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.music-box.show {
+  max-height: 180px;
+  opacity: 1;
+  transform: translateY(0); /* 🔥 turun ke posisi normal */
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.music-box.show {
+  animation: popUp 0.4s ease;
+}
+
+@keyframes popUp {
+  0% {
+    transform: translateY(-20px) scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* ================= EXTRA BOX ================= */
+.extra-box {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.5s ease;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.extra-box.show {
+  max-height: 520px;
+  opacity: 1;
+  padding: 15px;
+  margin-top: 10px;
+}
+
+/* ================= KAMU BOX ================= */
+#kamuBox p {
+  text-align: justify;
+  line-height: 1.6;
+  font-size: 13px;
+}
+
+#kamuBox p br {
+  display: block;
+  margin-bottom: 8px;
+}
+
+#kamuBox {
+  opacity: 1;
+  transform: translateY(0);
+  text-align: left;
+  font-family: "Georgia", serif;
+}
+
+#kamuBox.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= TITLE ================= */
+.title {
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ================= GRID ================= */
+.things-grid {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.thing-card {
+  position: relative;
+  width: 110px;
+  height: 170px; /* 🔥 lebih tinggi */
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  transition: 0.3s;
+}
+
+.thing-card:hover {
+  transform: scale(1.05);
+}
+
+.thing-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.3s;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  max-height: 100%; /* 🔥 penting */
+  padding: 10px;
+  font-size: 12px;
+  color: white;
+  line-height: 1.4;
+
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.85),
+    rgba(0,0,0,0.5),
+    transparent
+  );
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+
+  overflow-y: auto;
+}
+
+.overlay::-webkit-scrollbar {
+  width: 3px;
+}
+
+.overlay::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.5);
+  border-radius: 10px;
+}
+
+.thing-card:hover img {
+  transform: scale(1.1);
+}
+
+.thing-card:hover .overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.thing-card:hover .overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 480px) {
+  .card {
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  .extra-container {
+    width: 100%;
+  }
+}
+
+.things-grid {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+  flex-wrap: wrap; /* 🔥 biar rapi kalau sempit */
+}
+
+/* modal background */
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+/* gambar fullscreen */
+.image-modal img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 15px;
+  animation: zoomIn 0.3s ease;
+}
+
+/* tombol close */
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+/* animasi */
+@keyframes zoomIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* container hati */
+.hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* heart */
+.heart {
+  position: absolute;
+  color: #ff6b81;
+  font-size: 20px;
+  animation: fall linear forwards;
+  opacity: 0.8;
+}
+
+/* animasi jatuh */
+@keyframes fall {
+  0% {
+    transform: translateY(-10%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
+
+/* girlfriend box */
+.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+
+.gf-box.show {
+    opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+
+  transition: 
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.8s ease;
+
+  pointer-events: auto;
+}
+
+.gf-box.show {
+  box-shadow: 
+    0 10px 30px rgba(255, 107, 129, 0.3),
+    0 0 20px rgba(255, 107, 129, 0.2);
+}
+
+.gf-box {
+  margin-top: 15px;
+  padding: 15px;
+  background: #fff;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  animation: fadeIn 0.5s ease;
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+/* pertanyaan */
+.gf-question {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* tombol */
+.gf-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.yes-btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 20px;
+  background: #ff6b81;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.yes-btn:hover {
+  transform: scale(1.1);
+  background: #ff4d6d;
+}
+
+.no-btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 20px;
+  background: #ccc;
+  color: #333;
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s;
+}
+
+/* teks besar */
+.love-boom {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  font-size: 28px;
+  font-weight: bold;
+  color: rgb(249, 142, 215);
+  z-index: 9999;
+  animation: boomText 0.6s ease forwards;
+}
+
+@keyframes boomText {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+  50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* heart meledak */
+.boom-heart {
+  position: fixed;
+  font-size: 20px;
+  z-index: 9999;
+  animation: explode 1s ease forwards;
+}
+
+@keyframes explode {
+  to {
+    transform: translate(var(--x), var(--y)) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* teks tambahan bawah */
+.love-message {
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  font-size: 18px;
+  color: rgb(183, 7, 7);
+  text-align: center;
+  z-index: 9999;
+
+  opacity: 0;
+  animation: fadeMessage 0.8s ease forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeMessage {
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Aesthetic Confess Card</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrapper">
+
+    <div class="hearts-container"></div>
+    
+  <!-- CARD -->
+  <div class="card" id="mainCard">
+    
+    <div class="header">
+      <img src="ava.jpg" class="avatar">
+      <span class="username">sei</span>
+    </div>
+
+    <div class="image-box">
+      <img src="lv.jpeg">
+
+      <span class="tag tag-left" onclick="toggleMusic()">aku</span>
+      <span class="tag tag-right" onclick="toggleKamu()">kamu</span>
+      <span class="tag tag-bottom" onclick="toggleSuka()">suka</span>
+    </div>
+
+    <div class="actions">
+      ❤️ 888 &nbsp;&nbsp; 💬 4 &nbsp;&nbsp; 🔖
+    </div>
+
+    <p class="caption">
+      <b>sei</b> beautifull women i see ❤️
+    </p>
+
+    <p class="sub">ursecretadmirer</p>
+
+  </div>
+
+  <!-- EXTRA CONTENT -->
+  <div class="extra-container">
+
+    <!-- MUSIC -->
+    <div id="musicBox" class="music-box">
+      <p class="now">🎵 Now Playing</p>
+
+      <iframe 
+        id="scPlayer"
+        width="100%" 
+        height="120"
+        scrolling="no" 
+        frameborder="no" 
+        allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/202272218&auto_play=false">
+      </iframe>
+    </div>
+
+    <!-- SUKA -->
+    <div id="sukaBox" class="extra-box">
+        <p class="title">Things that remind me of you</p>
+
+     <div class="things-grid">
+
+        <div class="thing-card">
+            <img src="abu.jpeg" onclick="openImage(this.src)">
+            <div class="overlay">Tiap liat kucing pasti keinget kamu sama abuuu</div>
+        </div>
+
+        <div class="thing-card">
+         <img src="bouquet.jpg" onclick="openImage(this.src)">
+          <div class="overlay">Kamu orang pertama yang buat aku tau, kalau setiap jenis bunga itu punya makna khusus masing-masing</div>
+        </div>
+
+        <div class="thing-card">
+          <img src="Cheesecuit.jpg" onclick="openImage(this.src)">
+          <div class="overlay">Kalau liat kamu nyemil/makan tuh, Lucu banget liatnyaaa. 
+            Ga tau kenapa tapi seneng aja kamunya menikmati</div>
+        </div>
+
+    </div>
+    </div>
+    <!-- KAMU -->
+    <div id="kamuBox" class="extra-box">
+      <p>
+        hiii kaa, aku ga espek bisa jatuh hati sedalam ini sama seseorang yang ga pernah terpikirkan sama aku. Maafin aku yang dulu denial sama perasaanku ke kamu, ternyata memang harus ditinggalin dlu baru bisa sadar wkwk.
+        <p>Aku cuma mau bilang, kalau rasa sayang aku ke kamu itu tulus ka, baru kali ini aku ngerasa jatuh hati sedalam dalamnya sama seseorang (dan itu kamu).</p> 
+        <p>Aku orangnya ga pintar ngerangkai kata, aku mau berterima kasih karena dipertemukan dengan orang baik seperti kamu kak.</p>
+        <p>Walaupun kamu sempat bilang ga peduli hubungan kita kedepannya, aku ga mau nyesal kehilangan kmu buat ke 2xnya.</p>
+        <br> "you fell in love first, bur I've fallen deeper."
+      </p>
+    </div>
+
+  </div>
+
+  <div id="gfBox" class="gf-box hidden">
+    <p class="gf-question">Will you be my girlfriend? 💖</p>
+    <audio id="boomSound" src="yippie_2IJl9cR.mp3"></audio>
+
+    <div class="gf-buttons">
+      <button class="yes-btn" onclick="answerYes()">Yes 💗</button>
+      <button class="no-btn" onclick="moveNo(this)">No 😭</button>
+    </div>
+  </div>
+
+<!-- FULLSCREEN IMAGE MODAL -->
+<div id="imageModal" class="image-modal">
+  <span class="close-modal" onclick="closeImage()">&times;</span>
+  <img id="modalImg">
+</div>
+
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
