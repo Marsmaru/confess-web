@@ -15,7 +15,7 @@ html {
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #FFB6C1;
+  background: #ff8fa3;
 
   display: flex;
   justify-content: center;
@@ -497,17 +497,41 @@ button {
 .gf-buttons {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  width: auto !important;
+  align-items: center;
+  gap: 12px;
+}
+.gf-buttons.center {
+  justify-content: center;
+}
+
+.gf-buttons button {
+  width: auto !important;
+}
+
+.yes-btn,
+.no-btn {
+  min-width: 120px;   /* 🔥 samakan ukuran */
+  text-align: center;
+  flex: none;         /* 🔥 penting biar ga stretch */
 }
 
 .yes-btn {
   padding: 8px 15px;
   border: none;
   border-radius: 20px;
-  background: #ff6b81;
+  background: #ff8fa3;
+  display: block;
+  margin: 0 auto;
   color: white;
   cursor: pointer;
-  transition: 0.3s;
+  min-width: 120px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.yes-btn:only-child {
+  transform: scale(1.05);
 }
 
 .yes-btn:hover {
@@ -581,4 +605,59 @@ button {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
   }
+}
+
+
+/* ================= FINAL PAGE ================= */
+.final-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(135deg, #ff6b81, #ff8fa3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 99999;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.6s ease;
+}
+
+.final-page.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.final-content {
+  text-align: center;
+  color: white;
+  animation: fadeIn 1s ease;
+}
+
+.final-content h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.final-content p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.final-img {
+  width: 220px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  animation: pop 0.8s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
 }
