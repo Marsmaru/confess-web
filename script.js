@@ -120,20 +120,7 @@ function answerYes() {
   sound.currentTime = 0;
   sound.play();
 
-  // 💖 efek
-  let boom = document.createElement("div");
-  boom.className = "love-boom";
-  boom.innerHTML = "💖 I LOVE YOU 💖";
-
-  document.body.appendChild(boom);
-
-  let msg = document.createElement("div");
-  msg.className = "love-message";
-  msg.innerHTML = "Selamat kamu resmi jadi pacarkuu 😳💖";
-
-  document.body.appendChild(msg);
-
-  // 💥 heart
+  // 💥 HEART EXPLOSION
   for (let i = 0; i < 25; i++) {
     let heart = document.createElement("div");
     heart.className = "boom-heart";
@@ -149,23 +136,21 @@ function answerYes() {
     heart.style.setProperty("--y", y + "px");
 
     document.body.appendChild(heart);
-
     setTimeout(() => heart.remove(), 1000);
   }
 
-  // 🔥 scroll balik ke atas (smooth)
+  // ⏳ tampilkan final page (BUKAN redirect)
   setTimeout(() => {
-    document.getElementById("mainCard").scrollIntoView({
-      behavior: "smooth"
-    });
-  }, 800);
+    document.getElementById("finalPage").classList.add("show");
+  }, 1200);
 
   // hapus efek
   setTimeout(() => {
     boom.remove();
     msg.remove();
-  }, 3000);
+  }, 2000);
 }
+
 
 document.body.style.background = "#ff6b81";
 
@@ -174,30 +159,25 @@ let moveCount = 0;
 function moveNo(btn) {
   moveCount++;
 
-  // pindah posisi random
-  let x = Math.random() * 200 - 100; // kiri kanan
-  let y = Math.random() * 100 - 50;  // atas bawah
+  let x = Math.random() * 200 - 100;
+  let y = Math.random() * 100 - 50;
 
   btn.style.transform = `translate(${x}px, ${y}px)`;
 
-  // setelah beberapa kali → hilang 😈
   if (moveCount > 3) {
-    btn.style.opacity = "0";
-    btn.style.pointerEvents = "none";
+    btn.remove();
+
+    let container = document.querySelector(".gf-buttons");
+
+    // center tanpa ubah ukuran
+    container.style.justifyContent = "center";
   }
 }
 
-setTimeout(() => {
-  if (box.classList.contains("show")) {
-    gfBox.classList.add("show");
-  }
-}, 2000);
-
+let yesBtn = document.querySelector(".yes-btn");
+yesBtn.style.transform = "scale(1.2)";
+yesBtn.style.boxShadow = "0 0 15px #ff6b81";s
 
 setTimeout(() => {
-  closeAll();
-  document.getElementById("mainCard").scrollIntoView({
-    behavior: "smooth"
-  });
-}, 800);
-closeAll();
+  window.location.href = "love.html";
+}, 1200);
