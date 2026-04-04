@@ -661,3 +661,32 @@ button {
   0% { transform: scale(0); }
   100% { transform: scale(1); }
 }
+
+#rejectPage {
+  background: linear-gradient(135deg, #ffd1d1, #ff9aa2);
+}
+
+.final-content {
+  background: rgba(255,255,255,0.2);
+  padding: 20px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.reject-text {
+  margin-top: 15px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #444;
+
+  max-width: 350px;        /* 🔥 biar ga kepanjangan */
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+}
+
+.reject-text {
+  font-style: italic;
+}
+
