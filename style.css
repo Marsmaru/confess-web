@@ -667,6 +667,13 @@ button {
 }
 
 .final-content {
+  max-width: 400px;   /* 🔥 BATAS LEBAR */
+  width: 90%;
+  margin: auto;
+
+  text-align: center;
+  color: white;
+
   background: rgba(255,255,255,0.2);
   padding: 20px;
   border-radius: 20px;
@@ -688,5 +695,7 @@ button {
 
 .reject-text {
   font-style: italic;
+  text-align: justify;
+  text-align-last: center;
 }
 
