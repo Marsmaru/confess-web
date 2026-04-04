@@ -165,12 +165,30 @@ function moveNo(btn) {
   btn.style.transform = `translate(${x}px, ${y}px)`;
 
   if (moveCount > 3) {
-    btn.remove();
 
-    let container = document.querySelector(".gf-buttons");
+    // 💔 efek sad heart (lebih pelan)
+    for (let i = 0; i < 15; i++) {
+      let heart = document.createElement("div");
+      heart.className = "boom-heart";
+      heart.innerHTML = "💔";
 
-    // center tanpa ubah ukuran
-    container.style.justifyContent = "center";
+      heart.style.left = "50%";
+      heart.style.top = "50%";
+
+      let x = (Math.random() - 0.5) * 300;
+      let y = (Math.random() - 0.5) * 300;
+
+      heart.style.setProperty("--x", x + "px");
+      heart.style.setProperty("--y", y + "px");
+
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 1200);
+    }
+
+    // tampilkan halaman ditolak 😭
+    setTimeout(() => {
+      document.getElementById("rejectPage").classList.add("show");
+    }, 800);
   }
 }
 
